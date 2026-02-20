@@ -1,0 +1,18 @@
+Dylan Colburn
+Homework 3
+Date: 02/20/2026
+
+Question 2. Cryptanalysis of WEP
+Discuss the vulnerabilities of the Wired Equivalent Privacy (WEP) protocol.
+Your answer should explain the major weaknesses that make WEP insecure and susceptible to attacks.
+
+Answer: The major vulnerability of WEP is that the first few bytes of the output keystream are not random, which leaks information about the key.
+If the long-term key and nonce are simply concatenated to generate the RC4 key, this long-term key can be discovered by analyisng a large number of messages encryped with this key. This and related effects were then used to break the WEP encryption. 
+
+
+
+3. Security Issues in Diffie–Hellman
+Discuss the vulnerabilities that arise in the Diffie–Hellman key exchange when the generator g is not a primitive root and when p is not prime.
+
+Answer: The vulenerability that arises is that it then demand much larger values of a, b, and p to make it secure, as its easy to try all the possible values of g^ab mod x (there will be at most x values even if a and b are large),
+while if P is a prime more than 300 digits and a nd b are at least 100 digits wrong, even the most efficient known algorithms would take longer than the lifetime of the universe to run. 

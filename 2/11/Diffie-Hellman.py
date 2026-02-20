@@ -1,22 +1,27 @@
 #pip install sympy 
 # Dylan Colburn
 # Diffie Hellman Algorithm Implementation
-# 2/11/2026
+# First version made on 2/11/2026 for in class assignment
+# Updated on 2/20/2026 for homework assignment 3.
 
-from sympy.ntheory import isprime, is_primitive_root 
+from random import randint
+
+from sympy.ntheory import isprime, is_primitive_root, randprime, primitive_root
 
  
 
 
 if __name__ == "__main__":
     # Assign Publicly shared values  
-    p = 17
-    g = 3
-
+    p = randprime(1000000000,999999999999999) #Generates a random prime number of 10 - 15 digits)
+    print("Prime number (p):", p)
+    g = primitive_root(p) #Generates a primitive root modulo p
+    print("Primitive root (g):", g)
     if isprime(p) and is_primitive_root(g, p): 
-        a = int(input("Alice, enter your private key (a): "))
-        b = int(input("Bob, enter your private key (b): "))
-
+        a = randint(2, p-1) #Alice's private key
+        print("Alice's private key (a):", a)
+        b = randint(2, p-1) #Bob's private key
+        print("Bob's private key (b):", b)
     #generate alice_secret 
         alice_secret = pow(g, a, p) #formula from canvas slide 57 (step 3)
         print("Alice secret (A):", alice_secret)
